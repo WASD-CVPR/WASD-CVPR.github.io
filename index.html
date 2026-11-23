@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WASD: Writing Agents Steer Dreams</title>
+  <meta name="description" content="WASD lets an agent steer a world action model by rewriting its imagined future.">
+  <!-- remove this line when the project goes public -->
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;800&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="static/favicon.svg">
+  <link rel="stylesheet" href="static/styles.css">
+  <link rel="stylesheet" href="static/project-film.css">
+</head>
+<body>
+
+<!-- intro -->
+<div id="intro" aria-hidden="true">
+  <div class="kc" id="intro-kc"></div>
+  <p class="intro-line"><span><b>W</b>riting</span> <span><b>A</b>gents</span> <span><b>S</b>teer</span> <span><b>D</b>reams</span></p>
+</div>
+
+<!-- nav -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="WASD, back to top">
+    <span class="kc mini" data-kc></span>
+    <span class="brand-name">WASD</span><span class="brand-full"><b>W</b>riting <b>A</b>gents <b>S</b>teer <b>D</b>reams</span>
+  </a>
+  <nav class="nav-links" aria-label="Sections">
+    <a href="#idea">Idea</a>
+    <a href="#method">Method</a>
+    <a href="#why">Why imagination</a>
+    <a href="#results">Results</a>
+    <a href="#demos">Demos</a>
+  </nav>
+  <div class="nav-cta">
+    <a class="pill soon" href="#" data-soon>Paper</a>
+    <a class="pill soon" href="#" data-soon>arXiv</a>
+    <a class="pill solid soon" href="#" data-soon>Code</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- hero -->
+<section class="hero wrap">
+  <p class="eyebrow"><i></i>Anonymous submission</p>
+  <div class="hero-grid">
+    <div>
+      <h1>WASD</h1>
+      <p class="hero-sub" id="hero-sub"><span data-k="W"><b>W</b>riting</span> <span data-k="A"><b>A</b>gents</span> <span data-k="S"><b>S</b>teer</span> <span data-k="D"><b>D</b>reams</span></p>
+    </div>
+    <div class="hero-right">
+      <div class="kc hero-kc" id="hero-kc" title="Press W, A, S or D"></div>
+      <p class="hero-line">A robot imagines its future before it moves.<br><span class="c-agent">An agent reads that dream</span> and <span class="c-wam">rewrites it</span> when the plan is wrong.</p>
+    </div>
+  </div>
+  <div class="stats" id="stats">
+    <div class="stat"><b data-count="67.0" data-from="52.2">52.2</b><span>OpenWAM, zero-shot<em>from 52.2 %</em></span></div>
+    <div class="stat"><b data-count="61.4" data-from="42.7">42.7</b><span>Cosmos, zero-shot<em>from 42.7 %</em></span></div>
+    <div class="stat"><b data-count="71.8" data-from="52.2">52.2</b><span>with WASD-Tune<em>best on LIBERO-Recover</em></span></div>
+    <div class="stat"><b data-count="43" data-from="1" data-suffix="×" data-dec="0">1×</b><span>fewer tokens<em>than an agent harness</em></span></div>
+  </div>
+  <div class="linkbar">
+    <a href="#" data-soon>Paper<small>soon</small></a>
+    <a href="#" data-soon>arXiv<small>soon</small></a>
+    <a href="#" data-soon>Code<small>soon</small></a>
+    <a href="#demos">Demos</a>
+    <a href="#cite">BibTeX</a>
+  </div>
+</section>
+
+<section class="wrap project-film" aria-labelledby="project-film-title">
+  <div class="project-film-heading" id="project-film">
+    <h2 id="project-film-title">Watch the film.</h2>
+    <span class="project-film-duration">2:58</span>
+  </div>
+  <div class="card project-film-player">
+    <video id="project-film-video" controls playsinline preload="none" width="1920" height="1080" poster="assets/video/wasd-overview-poster.jpg" aria-label="WASD project overview video">
+      <source src="assets/video/wasd-overview.mp4" type="video/mp4">
+      <a href="assets/video/wasd-overview.mp4">Download the WASD project video.</a>
+    </video>
+    <button class="project-film-play" id="project-film-play" type="button" aria-label="Play the WASD project video" aria-controls="project-film-video" hidden>
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z" fill="currentColor"/></svg>
+      <span>Watch the film</span>
+    </button>
+  </div>
+</section>
+
+<!-- idea / teaser -->
+<section class="wrap sec" id="idea">
+  <p class="eyebrow"><i></i>The idea</p>
+  <h2>One wrong move, and a robot is lost.<br><span class="c-agent">Read the dream.</span> <span class="c-wam">Rewrite it.</span></h2>
+  <div class="card teaser" id="teaser">
+    <div class="seg" role="tablist" aria-label="Which future">
+      <button class="on" data-mode="wasd" role="tab"><span class="dot ok"></span>With WASD</button>
+      <button data-mode="alone" role="tab"><span class="dot bad"></span>WAM alone</button>
+    </div>
+    <div class="teaser-stage" id="teaser-svg"></div>
+    <div class="teaser-foot">
+      <p class="teaser-cap" id="teaser-cap"></p>
+      <p class="hint">Click a strip, a frame, the agent or the loop.<span class="only-narrow"> Swipe the figure sideways to see all of it.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- method -->
+<section class="wrap sec" id="method">
+  <p class="eyebrow"><i></i>Method</p>
+  <h2>Fix the plan only when it is wrong.</h2>
+  <div class="mtabs" role="tablist">
+    <button class="mtab on" data-m="zero" role="tab">
+      <span class="mtag run">Runtime</span><b>WASD-Zero</b><span>No retraining. The agent steps in before the first action and after a failure.</span>
+    </button>
+    <button class="mtab" data-m="tune" role="tab">
+      <span class="mtag train">Post-training</span><b>WASD-Tune</b><span>Guided successes become the WAM's own recovery data.</span>
+    </button>
+  </div>
+  <div class="card method">
+    <div class="method-fig" id="method-fig"></div>
+    <ol class="steps" id="steps"></ol>
+    <div class="step-detail" id="step-detail"></div>
+  </div>
+</section>
+
+<!-- why -->
+<section class="wrap sec" id="why">
+  <p class="eyebrow"><i></i>Why imagination</p>
+  <h2>The WAM acts on what it imagines.</h2>
+  <div class="why-grid">
+    <div class="card pad">
+      <p class="ctitle">How much the action changes when one input is swapped</p>
+      <div class="chart" id="chart-why"></div>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>3×</b><span>more leverage on actions than language<em>35 % vs. 11 %</em></span></div>
+      <div class="fact"><b>&lt; 3 cm</b><span>between the written route and the executed motion</span></div>
+      <div class="fact"><b>1</b><span>rewrite in the median episode. The WAM does the rest.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- results -->
+<section class="sec" id="results">
+  <div class="wrap">
+    <p class="eyebrow"><i></i>Results · LIBERO-Recover</p>
+    <div class="h2row">
+      <h2>Every episode starts from a failure.</h2>
+      <div class="car-ctl"><button id="car-prev" aria-label="Previous">←</button><button id="car-next" aria-label="Next">→</button></div>
+    </div>
+  </div>
+  <div class="carousel" id="carousel">
+    <article class="rc card" data-title="Zero-shot">
+      <header><p class="ctitle">Zero-shot gains on two WAMs</p><div class="seg small" data-for="zero"></div></header>
+      <div class="rc-body"><div class="chart" id="chart-zero"></div><div class="tbl" id="tbl-zero" hidden></div></div>
+      <footer><p class="take"><b>+14.8 pts</b> on OpenWAM, on par with an oracle that reads the simulator.</p><button class="ghost" data-toggle="zero">Table</button></footer>
+    </article>
+    <article class="rc card" data-title="Tokens">
+      <header><p class="ctitle">Success against agent-heavy systems</p></header>
+      <div class="rc-body"><div class="rows" id="rows-agents"></div></div>
+      <footer><p class="take"><b>43× fewer tokens</b> than an agent harness: 30.2k vs. 1.30M per episode.</p></footer>
+    </article>
+    <article class="rc card" data-title="Post-training">
+      <header><p class="ctitle">Post-training and guidance add up</p><div class="seg small" data-for="tune"></div></header>
+      <div class="rc-body"><div class="chart" id="chart-tune"></div><div class="tbl" id="tbl-tune" hidden></div></div>
+      <footer><p class="take"><b>71.8 %</b> with WASD-Tune. Naive post-training drops to 50.1 %.</p><button class="ghost" data-toggle="tune">Table</button></footer>
+    </article>
+    <article class="rc card" data-title="Timing">
+      <header><p class="ctitle">When should the agent step in?</p></header>
+      <div class="rc-body"><div class="chart" id="chart-timing"></div></div>
+      <footer><p class="take"><b>Start + failures</b> gets most of the gain. Denser schedules stop the robot far more often.</p></footer>
+    </article>
+    <article class="rc card" data-title="Ablations">
+      <header><p class="ctitle">What each part is worth</p></header>
+      <div class="rc-body"><div class="rows" id="rows-abl"></div></div>
+      <footer><p class="take">Replacing the written frames with <b>text</b> costs the most: −15.3 pts.</p></footer>
+    </article>
+    <article class="rc card" data-title="Retention">
+      <header><p class="ctitle">Standard LIBERO skills are kept</p></header>
+      <div class="rc-body"><div class="tbl" id="tbl-keep"></div></div>
+      <footer><p class="take">Interpolating back toward the released weights keeps what the WAM already does well.</p></footer>
+    </article>
+  </div>
+  <div class="wrap"><div class="dots" id="car-dots"></div></div>
+</section>
+
+<!-- demos -->
+<section class="wrap sec" id="demos">
+  <p class="eyebrow"><i></i>Real robot</p>
+  <h2>One edit redirects the goal.</h2>
+
+  <div class="dtabs" id="dtabs"></div>
+  <div class="card demo" id="demo">
+    <div class="demo-head">
+      <div><b id="d-title"></b><span id="d-trap"></span></div>
+      <div class="demo-ctl">
+        <button id="d-play" class="round" aria-label="Play or pause">▶</button>
+        <button id="d-restart" class="ghost">Restart</button>
+        <div class="seg small" id="d-speed"><button data-s="1">1×</button><button data-s="2" class="on">2×</button><button data-s="4">4×</button></div>
+      </div>
+    </div>
+    <div class="demo-grid">
+      <div class="pane" data-side="alone">
+        <div class="pane-top"><span class="who">WAM alone</span><span class="out bad" id="out-alone"></span></div>
+        <div class="vwrap" title="Click to play or pause">
+          <video class="main" muted playsinline preload="metadata"></video>
+          <button class="inset" title="Swap views"><video muted playsinline preload="metadata"></video><span>Wrist</span></button>
+          <span class="bigplay" aria-hidden="true"><i></i></span>
+        </div>
+        <div class="lane">
+          <div class="lane-head"><span class="lane-t">Imagined future</span><span class="lane-note">no agent</span></div>
+          <div class="film"></div>
+          <p class="lane-cap"><span class="verdict" hidden></span><span class="lane-txt"></span></p>
+        </div>
+        <div class="tl"><div class="tl-meta"><span class="tl-state">Execution</span><span class="tl-time">00:00 / 00:00</span></div><div class="bar"><div class="fill"></div><div class="marks"></div></div></div>
+      </div>
+      <div class="pane" data-side="wasd">
+        <div class="pane-top"><span class="who c-agent">With WASD</span><span class="out ok" id="out-wasd"></span></div>
+        <div class="vwrap" title="Click to play or pause">
+          <video class="main" muted playsinline preload="metadata"></video>
+          <button class="inset" title="Swap views"><video muted playsinline preload="metadata"></video><span>Wrist</span></button>
+          <span class="bigplay" aria-hidden="true"><i></i></span>
+          <span class="wait"><i></i>Robot waits: the agent is thinking</span>
+        </div>
+        <div class="lane">
+          <div class="lane-head"><span class="lane-t">Imagined future</span><span class="stg" id="stg"><button data-s="0">1 Read</button><button data-s="1">2 Rewrite</button><button data-s="2">3 Act</button></span></div>
+          <div class="film"></div>
+          <p class="lane-cap"><span class="verdict" hidden></span><span class="lane-txt"></span></p>
+        </div>
+        <div class="tl"><div class="tl-meta"><span class="tl-state">Execution</span><span class="tl-time">00:00 / 00:00</span></div><div class="bar"><div class="fill"></div><div class="marks"></div></div><div class="tl-leg"><span><i class="e"></i>Execution</span><span><i class="t"></i>Thinking, counted in the time</span></div></div>
+      </div>
+      <div class="lb" id="lb" hidden>
+        <div class="lb-head"><b id="lb-title"></b><button id="lb-close" aria-label="Close">×</button></div>
+        <div class="lb-imgs"><figure><img id="lb-e" alt=""><figcaption>External camera</figcaption></figure><figure><img id="lb-r" alt=""><figcaption>Wrist camera</figcaption></figure></div>
+      </div>
+    </div>
+    <p class="hint">Click a video to play. The clock never stops: while the agent reads and rewrites, the robot on the right waits and the time counts. Click a frame to enlarge, a marker to jump.</p>
+  </div>
+</section>
+
+<!-- cite -->
+<section class="wrap sec" id="cite">
+  <p class="eyebrow"><i></i>Citation</p>
+  <div class="card cite">
+    <button class="pill" id="copy-bib">Copy BibTeX</button>
+<pre id="bib">@inproceedings{wasd2026,
+  title     = {WASD: Writing Agents Steer Dreams},
+  author    = {Anonymous},
+  booktitle = {Under review},
+  year      = {2026}
+}</pre>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot wrap">
+  <span class="kc mini" data-kc></span>
+  <span>Agents steer world action models by rewriting their imaginations.</span>
+  <a href="#top">Back to top ↑</a>
+</footer>
+
+<div id="tip" role="tooltip" hidden></div>
+<div id="toast" hidden></div>
+<script src="static/app.js"></script>
+<script src="static/project-film.js"></script>
+</body>
+</html>
